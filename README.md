@@ -1,45 +1,77 @@
-# Chiffrement de Caractères et de Mots
+# Programme de Chiffrement Affine
+Documentation rédigée par claude.ai et non par moi même
+## Description
 
-Ce programme en Python permet de chiffrer des caractères et des mots en utilisant une méthode de chiffrement basée sur des coefficients `a` et `b`. Le chiffrement est effectué en transformant chaque lettre en une nouvelle lettre selon une formule mathématique.
+Ce programme Python implémente un chiffrement affine, une méthode de chiffrement par substitution mono-alphabétique où chaque lettre est transformée selon la formule : `(ax + b) mod 26`, où x est la position de la lettre dans l'alphabet.
 
 ## Fonctionnalités
 
-- **Chiffrement de Caractères** : Chiffre un caractère unique en utilisant les coefficients `a` et `b`.
-- **Chiffrement de Mots** : Chiffre un mot entier en utilisant les coefficients `a` et `b`.
-- **Menu Principal** : Permet à l'utilisateur de choisir entre chiffrer un caractère ou un mot.
+* Chiffrement d'un caractère unique
+* Chiffrement d'un mot complet
+* Interface utilisateur en ligne de commande
+* Support des lettres majuscules (saisie peut être en minuscules)
 
-## Comment Utiliser
+## Prérequis
 
-1. **Démarrer le Programme** : Exécutez le programme. Le menu principal s'affichera avec les options de chiffrement.
-2. **Choisir une Option** : Entrez `1` pour chiffrer un caractère ou `2` pour chiffrer un mot.
-3. **Entrer les Coefficients** : Entrez les valeurs des coefficients `a` et `b`.
-4. **Entrer le Caractère ou le Mot** : Entrez le caractère ou le mot à chiffrer.
-5. **Obtenir le Résultat** : Le programme affichera le caractère ou le mot chiffré.
+* Python 3.x
 
-## Aperçu du Code
+## Installation
 
-### Fonctions
+Clonez ce dépôt ou téléchargez le fichier source directement. Aucune dépendance externe n'est requise.
 
-- **coderchr** : Chiffre un caractère unique en utilisant les coefficients `a` et `b`.
-  - **Paramètres** :
-    - `a` : Coefficient `a`.
-    - `b` : Coefficient `b`.
-    - `lettreAchiffer` : Le caractère à chiffrer.
-  - **Retourne** : Le caractère chiffré.
+## Utilisation
 
-- **CoderUnMot** : Chiffre un mot entier en utilisant les coefficients `a` et `b`.
-  - **Fonctionnement** :
-    - Demande à l'utilisateur d'entrer le mot lettre par lettre.
-    - Chiffre chaque lettre en utilisant la fonction `coderchr`.
-    - Affiche le mot chiffré.
+Exécutez le programme en utilisant Python :
 
-### Fonctionnement
+```bash
+python chiffrement.py
+```
 
-1. **Initialisation** : Le programme affiche le menu principal avec les options de chiffrement.
-2. **Choix de l'Utilisateur** :
-   - Si l'utilisateur choisit de chiffrer un caractère (option `1`), le programme demande les coefficients `a` et `b`, ainsi que le caractère à chiffrer, puis affiche le caractère chiffré.
-   - Si l'utilisateur choisit de chiffrer un mot (option `2`), le programme demande les coefficients `a` et `b`, puis appelle la fonction `CoderUnMot` pour chiffrer le mot entier.
-3. **Chiffrement** :
-   - Pour un caractère, la fonction `coderchr` est utilisée pour chiffrer le caractère.
-   - Pour un mot, la fonction `CoderUnMot` demande à l'utilisateur d'entrer le mot lettre par lettre, chiffre chaque lettre en utilisant `coderchr`, et affiche le mot chiffré.
+Le programme propose deux options :
+
+1. Coder un caractère unique
+2. Coder un mot complet
+
+### Paramètres de chiffrement
+
+Pour les deux options, vous devrez fournir :
+
+* La valeur de `a` (multiplicateur)
+* La valeur de `b` (décalage)
+
+### Exemples d'utilisation
+
+#### Pour chiffrer un caractère
+
+1. Choisissez l'option 1
+2. Entrez les valeurs de `a` et `b`
+3. Saisissez la lettre à chiffrer
+
+#### Pour chiffrer un mot
+
+1. Choisissez l'option 2
+2. Entrez les valeurs de `a` et `b`
+3. Saisissez votre mot lettre par lettre
+4. Tapez 'fin' pour terminer la saisie
+
+## Structure du code
+
+Les fonctions principales sont :
+
+* `ClearScreen()` : Nettoie l'affichage
+* `coderchr(a,b,lettreAchiffer)` : Effectue le chiffrement d'un caractère
+* `CoderUnMot()` : Gère le chiffrement d'un mot complet
+
+## Notes techniques
+
+* Le programme utilise les codes ASCII (65-90) pour les lettres majuscules
+* La formule de chiffrement est : `(a * x + b) mod 26`
+* Les entrées sont automatiquement converties en majuscules
+
+## Limitations
+
+* Ne gère que les lettres majuscules de l'alphabet (A-Z)
+* Ne prend pas en charge les caractères spéciaux ou les espaces
+
+
 
